@@ -1,12 +1,19 @@
 <script setup lang="ts">
-defineProps<{
-    value?: string;
-}>();
+import { defineProps } from 'vue';
+
+const props = defineProps({
+    for: String,
+    value: String,
+    required: {
+        type: Boolean,
+        default: false,
+    },
+});
 </script>
 
 <template>
-    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">
-        <span v-if="value">{{ value }}</span>
-        <span v-else><slot /></span>
+    <label :for="for" class="block font-medium text-sm text-gray-700">
+        {{ value }}
+        <span v-if="required" class="text-red-500">*</span>
     </label>
 </template>

@@ -42,8 +42,7 @@ const form = useForm({
                     type="text"
                     class="mt-1 block w-full"
                     v-model="form.name"
-                    required
-                    autofocus
+                    disabled
                     autocomplete="name"
                 />
 
@@ -65,6 +64,11 @@ const form = useForm({
                 <InputError class="mt-2" :message="form.errors.email" />
             </div>
 
+            <div v-if="user.email === null">
+                <p class="mt-2 text-sm text-red-600 dark:text-red-400">
+                    You have not provided an email address. If you forget your password, you will lose access to your account.
+                </p>
+            </div>
             <div v-if="mustVerifyEmail && user.email_verified_at === null">
                 <p class="mt-2 text-sm text-gray-800 dark:text-gray-200">
                     Your email address is unverified.
