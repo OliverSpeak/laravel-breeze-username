@@ -31,11 +31,12 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'name' => 'required|string|max:255|unique:'.User::class,
+            'name' => 'required|string|max:255|regex:/^[a-zA-Z0-9_.-]+$/|unique:'.User::class,
             'email' => 'nullable|string|lowercase|email|max:255|unique:'.User::class,
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ], [
             'name.unique' => 'This name has been taken. Please try another.',
+            'name.regex' => 'The name may only contain letters, numbers, underscores, hyphens, and periods.',
             'email.unique' => 'This address is associated with another account. Please try a different email address.',
         ]);
 
