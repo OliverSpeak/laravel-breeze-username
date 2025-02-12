@@ -2,7 +2,7 @@
 
 ## About Laravel Breeze Username (Inertia / Vue)
 
-This is a fork of the original Laravel Breeze package with modifications to the authentication scaffolding. This version permits account creation without requiring an email address. Instead, the account username is used for authentication. For more info, see [Laravel Breeze](https://github.com/laravel/breeze).
+This is a fork of the original Laravel Breeze package with modifications to the authentication scaffolding and some UI components. Essentially, this version permits account creation without requiring an email address. Instead, the account username is used for authentication. For more info, see [Laravel Breeze](https://github.com/laravel/breeze).
 
 - Breeze stack: Vue with Inertia
 - Dark mode: Enabled
